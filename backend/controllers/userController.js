@@ -168,3 +168,87 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
     sendToken(user, 200, res);
 });
+
+// Update User Profile
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+    const newUserData={
+        name:req.body.name,
+        email:req.body.email,
+    }
+
+    // We cloudinary later
+
+    const user = await User.findByIdAndUpdate(req.user.id,newUserData,{
+        new:true,
+        runValidators:true,
+        useFindAndModify:false,
+    })
+    res.status(200).json({
+        success:true,
+    })
+});
+
+// Get all User(admin)
+exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
+    
+    const users = await User.find()
+
+    res.status(200).json({
+        success:true,
+        users,
+    })
+})
+
+// Get single User(admin)
+exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
+    
+    const user = await User.findById(req.params.id)
+
+    if(!user){
+        return next(new ErrorHandler(`User does not exist with Id: ${req.params.id}`))
+    }
+
+    res.status(200).json({
+        success:true,
+        user,
+    })
+})
+
+// Update User Role
+exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
+    const newUserData={
+        name:req.body.name,
+        email:req.body.email,
+        role: req.body.role,
+    }
+
+    const user = await User.findByIdAndUpdate(req.params.id,newUserData,{
+        new:true,
+        runValidators:true,
+        useFindAndModify:false,
+    })
+
+    if(!user){
+        return next(new ErrorHandler(`User does not exist with Id: ${req.params.id}`))
+    }
+    res.status(200).json({
+        success:true,
+    })
+});
+
+// Delete User
+exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
+    
+    const user = await User.findById(req.params.id)
+
+    if(!user){
+        return next(new ErrorHandler(`User does not exist with Id: ${req.params.id}`))
+    }
+
+    await user.remove();
+
+
+    res.status(200).json({
+        success:true,
+    })
+});
