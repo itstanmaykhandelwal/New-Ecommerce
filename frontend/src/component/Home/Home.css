@@ -1,14 +1,29 @@
-.lyt-section{
-    padding: 12rem 0;
+.lyt-section {
+    padding: 70px 0;
+}
+.lyt-section.typ-banner-lyt{
+    padding: 180px 0;
+    padding-bottom: 70px;
 }
 img {
     min-width: 10rem;
     height: 10rem;
 }
+.typ-justify-space{
+    justify-content: space-between;
+}
+.intro-data{
+    text-transform: uppercase;
+    color: rgb(68, 161, 160);
+    font-size: 1.65rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
 .hero-section-data {
     p {
         margin: 2rem 0;
     }
+    .intro-data
     h1 {
         text-transform: capitalize;
         font-weight: bold;
@@ -26,16 +41,16 @@ img {
 }
 figure {
     position: relative;
-    &::after {
-        content: "";
-        width: 60%;
-        height: 80%;
-        background-color: #44a1a0;
-        position: absolute;
-        left: 50%;
-        top: -5rem;
-        z-index: -1;
-    }
+}
+figure::after {
+    content: "";
+    width: 60%;
+    height: 80%;
+    background-color: #44a1a0;
+    position: absolute;
+    left: 50%;
+    top: -5rem;
+    z-index: -1;
 }
 .img-style {
     width: 100%;

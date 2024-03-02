@@ -10,4 +10,22 @@
     justify-content: flex-end;
 }
 
+.text-wrap{
+    text-align: center;
+}
 
+
+.common-heading{
+    font-size: 3.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+
+.bs-btn{
+    width: auto;
+    height: 40px;
+    background-color: rgb(68, 161, 160);
+    border-radius: 12px;
+    color: #fff;
+}
