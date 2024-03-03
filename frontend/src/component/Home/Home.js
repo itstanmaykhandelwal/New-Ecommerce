@@ -1,28 +1,25 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import Product from "./Product/product.js";
+import Product from "./Product/product";
 import MetaData from "../layout/MetaData.js";
 import { getProduct } from "../../actions/ProductAction.js";
 import { useSelector, useDispatch } from "react-redux";
+import { useAlert } from "react-alert";
 
 const Home = () => {
-    const product = {
-        name: "Blue Shirt",
-        images: [
-            {
-                url: "https://5.imimg.com/data5/JH/SP/MY-33710583/men-s-blue-shirt-1000x1000.jpg",
-            },
-        ],
-        price: "Rs300",
-        _id: "TMK",
-    };
-
+    const alert = useAlert()
     const dispatch = useDispatch();
+    const { loading, error, products, productsCount } = useSelector(
+        (state) => state.products
+    );
 
     useEffect(() => {
+        if(error){
+            return alert.error(error)
+        }
         dispatch(getProduct());
-    }, [dispatch]);
+    }, [dispatch,error,alert]);
 
     return (
         <>
@@ -74,12 +71,10 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="product-flex-lyt">
-                        <Product product={product} />
-                        <Product product={product} />
-                        <Product product={product} />
-                        <Product product={product} />
-                        <Product product={product} />
-                        <Product product={product} />
+                        {products &&
+                            products.map((product) => (
+                                <Product key={product._id} product={product} />
+                            ))}
                     </div>
                 </div>
             </section>
