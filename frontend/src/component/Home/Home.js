@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import Product from "./Product/product";
+import Product from "./Product/ProductCard.js";
 import MetaData from "../layout/MetaData.js";
-import { getProduct } from "../../actions/ProductAction.js";
+import { clearErrors, getProduct } from "../../actions/ProductAction.js";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 
@@ -16,7 +16,8 @@ const Home = () => {
 
     useEffect(() => {
         if(error){
-            return alert.error(error)
+            alert.error(error);
+            dispatch(clearErrors());
         }
         dispatch(getProduct());
     }, [dispatch,error,alert]);
