@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -78,7 +78,7 @@ const Footer = () => {
                                     <h3>Useful Links</h3>
                                 </div>
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <a href="#">Home</a>
                                     </li>
                                     <li>
@@ -92,7 +92,7 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <a href="#">Contact us</a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         </div>
@@ -139,7 +139,7 @@ const Footer = () => {
                         <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                             <div className="footer-menu">
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         <a href="#">Home</a>
                                     </li>
                                     <li>
@@ -153,7 +153,7 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <a href="#">Contact</a>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         </div>

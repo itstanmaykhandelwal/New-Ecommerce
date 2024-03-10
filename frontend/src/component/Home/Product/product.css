@@ -23,7 +23,9 @@
 .productCard > img {
     border-radius: 10px;
 }
-
+.typ-img-lyt{
+    padding: 5px;
+}
 .productCard > div {
     margin: 0.5vmax;
     display: flex;

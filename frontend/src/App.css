@@ -17,6 +17,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+body{
+    scroll-behavior: smooth;
+}
 
 .greenColor {
   color: green !important;

@@ -25,6 +25,7 @@ const ProductCard = ({ product }) => {
                     <ReactStars {...options} /> <span>({product.numOfReviews} Review)</span>
                 </div>
                 <span>{`₹${product.price}`}</span>
+                <span>{product.color}</span>
                 <div className="bs-btn">Buy Now</div>
             </Link>
         </>
