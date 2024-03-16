@@ -20,6 +20,4 @@ router
 
     router.route("/review").put(isAuthenticatedUser,createProductReview);
     router.route("/reviews").get(getProductReview).delete(isAuthenticatedUser,deleteReview)
-    
-
 module.exports  = router
