@@ -9,6 +9,8 @@ import { useHistory } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch } from "react-redux";
+import { FiUser } from "react-icons/fi";
+import { Backdrop } from "@material-ui/core";
 
 const UserOptions = ({ user }) => {
     const [open, setOpen] = useState(false);
@@ -46,16 +48,19 @@ const UserOptions = ({ user }) => {
 
     return (
         <>
+            <Backdrop open={open} style={{zIndex:10}}/>
             <SpeedDial
+                className="speedDial"
                 ariaLabel="SpeedDial tooltip example"
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
+                style={{zIndex:"11"}}
                 open={open}
                 direction="down"
                 icon={
                     <img
                         className="speedDialIcon"
-                        src={user.avatar.url ? user.avatar.url : "/profile.jpg"}
+                        src={user.avatar.url ? user.avatar.url : <FiUser />}
                         alt="Profile"
                     />
                 }

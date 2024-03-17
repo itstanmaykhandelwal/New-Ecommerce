@@ -26,16 +26,21 @@ const userSchema = new mongoose.Schema({
     avatar:{
         public_id:{
             type:String,
-            required:true
+            // required:true
         },
         url:{
             type:String,
-            required:true
+            // required:true
         }
     },
     role:{
         type:String,
         default:"user",
+    },
+
+    createdAt:{
+        type:Date,
+        default:Date.now,
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
