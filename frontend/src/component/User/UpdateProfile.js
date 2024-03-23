@@ -20,7 +20,7 @@ const UpdateProfile = ({ history }) => {
     const { error, isUpdated } = useSelector((state) => state.profile)
 
 
-    const regsiterSubmit = (e) => {
+    const updateProfile = (e) => {
         e.preventDefault();
 
         const myForm = new FormData();
@@ -76,7 +76,7 @@ const UpdateProfile = ({ history }) => {
                             className='updateProfileForm'
 
                             encType='multipart/form-data'
-                            onSubmit={regsiterSubmit}
+                            onSubmit={updateProfile}
                         >
                             <div className="updateProfileName">
                                 <TbFaceId />
