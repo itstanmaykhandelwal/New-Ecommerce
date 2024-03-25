@@ -15,11 +15,12 @@ const ProductCard = ({ product }) => {
     return (
         <>
             <Link className="productCard" to={`/product/${product._id}`}>
-                <img
-                    // src={product.images[0].url}
+                {/* <img
+                    src={product.images[0].url||""}
                     className="img-fluid"
                     alt="product_img"
-                />
+                /> */}
+                {product.images && product.images.length > 0 ? <img src={product.images[0].url} alt="Product Image" /> : null}
                 <p>{product.name}</p>
                 <div>
                     <ReactStars {...options} /> <span>({product.numOfReviews} Review)</span>

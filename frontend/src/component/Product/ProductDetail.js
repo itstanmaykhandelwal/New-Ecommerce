@@ -7,6 +7,7 @@ import ReactStars from "react-rating-stars-component";
 import ReviewCard from "./ReviewCard.js";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData.js";
+import {addItemsToCart} from '../../actions/cartAction.js';
 
 const ProductDetail = ({ match }) => {
     const dispatch = useDispatch();
@@ -37,6 +38,24 @@ const ProductDetail = ({ match }) => {
         isHalf: true,
     };
 
+    const [quantity, setQuantity] = useState(1);
+
+    const increaseQuantity = () => {
+        if(product.Stock <= quantity) return;
+        const qty = quantity + 1;
+        setQuantity(qty);
+    }
+
+    const decreaseQuantity = () =>{
+        if(1 >= quantity) return;
+        const qty = quantity - 1;
+        setQuantity(qty);
+    }
+
+    const addToCartHandler = () =>{
+        dispatch(addItemsToCart(match.params.id,quantity));
+        alert.success("Items added to Cart")
+    }
     return (
         <>
             {loading && <div>Loading...</div>}
@@ -70,11 +89,11 @@ const ProductDetail = ({ match }) => {
                                 <h1>{`${product.price}`}</h1>
                                 <div className="detailsBlock-3-1">
                                     <div className="detailsBlock-3-1-1">
-                                        <button>-</button>
-                                        <input defaultValue="1" type="number" />
-                                        <button>+</button>
+                                        <button onClick={decreaseQuantity}>-</button>
+                                        <input readOnly type="number" value={quantity} />
+                                        <button onClick={increaseQuantity}>+</button>
                                     </div>
-                                    <button>Add to Cart</button>
+                                    <button onClick={addToCartHandler}>Add to Cart</button>
                                 </div>
                                 <p>
                                     Status:

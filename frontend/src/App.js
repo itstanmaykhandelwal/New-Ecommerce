@@ -16,8 +16,10 @@ import { loadUser } from './actions/userAction.js';
 import UserOptions from './component/layout/Header/UserOptions.js'
 import { useSelector } from 'react-redux';
 import ProtectedRoute from './component/Route/ProtectedRoute.js';
-import ForgotPassword from './component/User/ForgotPassword.js'
-import ResetPassword from './component/User/ResetPassword.js'
+import ForgotPassword from './component/User/ForgotPassword.js';
+import ResetPassword from './component/User/ResetPassword.js';
+import Cart from './component/Cart/Cart.js';
+import Shipping from './component/Shipping/Shipping.js';
 
 function App() {
     const {isAuthenticated,user} = useSelector((state)=>state.user)
@@ -45,6 +47,8 @@ function App() {
             <Route exact path="/password/forgot" component={ForgotPassword}/>
             <Route exact path="/password/reset/:token" component={ResetPassword}/>
             <Route path="/login" component={LoginSignUp}/>
+            <Route path="/cart" component={Cart}/>
+            <ProtectedRoute exact path="/shipping" component={Shipping} />
             <Footer/>
         </Router>
     );

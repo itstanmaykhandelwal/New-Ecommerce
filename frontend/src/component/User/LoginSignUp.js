@@ -7,8 +7,9 @@ import { TbFaceId } from "react-icons/tb";
 import {useDispatch,useSelector} from 'react-redux';
 import { clearErrors, login,register } from '../../actions/userAction';
 import {useAlert} from 'react-alert';
+import { red } from '@material-ui/core/colors';
 
-const Login = ({history}) => {
+const Login = ({history,location}) => {
     const dispatch = useDispatch();
     const alert = useAlert();
 
@@ -66,15 +67,17 @@ const Login = ({history}) => {
         }
     };
 
+    const redirect = location.search ? location.search.split("=")[1] : "/account"
+
     useEffect(() => {
         if(error){
             alert.error(error);
             dispatch(clearErrors());
         }
         if(isAuthenticated){
-            history.push("/account")
+            history.push(redirect);
         }
-    }, [dispatch,error,alert,history,isAuthenticated])
+    }, [dispatch,error,alert,history,isAuthenticated,redirect])
     
 
     const switchTabs = (e, tab) => {
