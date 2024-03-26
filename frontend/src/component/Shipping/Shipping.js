@@ -10,12 +10,14 @@ import { useAlert } from 'react-alert';
 import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import MetaData from '../layout/MetaData';
 import CheckOutSteps from '../Cart/CheckOutSteps.js'
+import {saveShippingInfo} from '../../actions/cartAction.js'
 
-const Shipping = () => {
+const Shipping = ({history}) => {
 
     const dispatch = useDispatch();
     const alert = useAlert();
     const { shippingInfo } = useSelector((state) => state.cart);
+
     const [city, setCity] = useState(shippingInfo.city)
     const [address, setAddress] = useState(shippingInfo.address);
     const [state, setState] = useState(shippingInfo.state);
@@ -23,8 +25,17 @@ const Shipping = () => {
     const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
     const indianStates = State.getStatesOfCountry('IN');
 
-    const shippingSubmit = () => {
+    const shippingSubmit = (e) => {
+        e.preventDefault();
 
+        if(phoneNo.length < 10 || phoneNo.length > 10){
+            alert.error("Phone Number should be 10 Digits Long");
+            return;
+        }
+        dispatch(
+            saveShippingInfo({address,city,state,pinCode,phoneNo})
+        );
+        history.push("/order/confirm")
     }
 
     return (
