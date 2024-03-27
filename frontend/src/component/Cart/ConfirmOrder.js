@@ -8,7 +8,7 @@ import { Typography } from '@material-ui/core';
 
 
 
-const ConfirmOrder = () => {
+const ConfirmOrder = ({history}) => {
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user)
 
@@ -24,6 +24,19 @@ const ConfirmOrder = () => {
     const totalPrice = subtotal + shippingCharges;   //+tax
 
     const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}`;
+
+    const processToPayment = () => {
+        const data ={
+            subtotal,
+            shippingCharges,
+            totalPrice,
+            // tax
+        };
+
+        sessionStorage.setItem("orderInfo",JSON.stringify(data));
+
+        history.push("/process/payment")
+    }
 
     return (
         <>
@@ -93,7 +106,7 @@ const ConfirmOrder = () => {
                             <span>₹{totalPrice}</span>
                         </div>
 
-                        <button >Proceed To Payment</button>
+                        <button onClick={processToPayment}>Proceed To Payment</button>
                     </div>
                 </div>
             </div>
