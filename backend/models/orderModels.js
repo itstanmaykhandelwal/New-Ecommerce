@@ -14,10 +14,10 @@ const orderSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        country: {
-            type: String,
-            required: true,
-        },
+        // country: {
+        //     type: String,
+        //     required: true,
+        // },
         pinCode: {
             type: Number,
             required: true,
@@ -44,7 +44,6 @@ const orderSchema = new mongoose.Schema({
             },
             color: {
                 type: String,
-                required: true,
             },
             image: {
                 type: String,
