@@ -31,7 +31,7 @@ const Payment = ({ history }) => {
     const elements = useElements();
     const payBtn = useRef(null);
 
-    const { shippingInfo, cartItems } = useSelector((state) => state.cart);
+    const { shippingInfo, cartItems,loading } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user);
     const { error } = useSelector((state) => state.newOrder);
 
@@ -116,6 +116,14 @@ const Payment = ({ history }) => {
             dispatch(clearErrors());
         }
     }, [dispatch, error, alert]);
+
+    if (loading) {
+        return (
+            <>
+                <h1>Loading</h1>
+            </>
+        );
+    }
 
     return (
         <Fragment>

@@ -9,7 +9,7 @@ const OrderSuccess = () => {
         <div className="orderSuccess">
             <MdCheckCircle/>
             <Typography>Your Order has been Placed successfully</Typography>
-            <Link to="/order/me"></Link>
+            <Link to="/orders"></Link>
         </div>
     )
 }

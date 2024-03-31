@@ -2,10 +2,13 @@ import {
     CREATE_ORDER_REQUEST,
     CREATE_ORDER_SUCCESS,
     CREATE_ORDER_FAIL,
-    CLEAR_ERRORS,
     MY_ORDER_REQUEST,
     MY_ORDER_SUCCESS,
     MY_ORDER_FAIL,
+    ORDER_DETAILS_REQUEST,
+    ORDER_DETAILS_SUCCESS,
+    ORDER_DETAILS_FAIL,
+    CLEAR_ERRORS,
 } from "../constants/orderConstant";
 
 export const newOrderReducer = (state = {}, action) => {
@@ -38,7 +41,7 @@ export const newOrderReducer = (state = {}, action) => {
     }
 };
 
-export const myOrdersReducer = (state = {orders:[]}, action) => {
+export const myOrdersReducer = (state = { orders: [] }, action) => {
     switch (action.type) {
         case MY_ORDER_REQUEST:
             return {
@@ -66,3 +69,32 @@ export const myOrdersReducer = (state = {orders:[]}, action) => {
             return state;
     }
 };
+
+export const orderDetailsReducer = (state = { order: {} }, action) => {
+    switch (action.type) {
+      case ORDER_DETAILS_REQUEST:
+        return {
+          loading: true,
+        };
+
+      case ORDER_DETAILS_SUCCESS:
+        return {
+          loading: false,
+          order: action.payload,
+        };
+
+      case ORDER_DETAILS_FAIL:
+        return {
+          loading: false,
+          error: action.payload,
+        };
+      case CLEAR_ERRORS:
+        return {
+          ...state,
+          error: null,
+        };
+
+      default:
+        return state;
+    }
+  };

@@ -16,7 +16,7 @@ const Shipping = ({history}) => {
 
     const dispatch = useDispatch();
     const alert = useAlert();
-    const { shippingInfo } = useSelector((state) => state.cart);
+    const { shippingInfo,loading } = useSelector((state) => state.cart);
 
     const [city, setCity] = useState(shippingInfo.city)
     const [address, setAddress] = useState(shippingInfo.address);
@@ -36,6 +36,14 @@ const Shipping = ({history}) => {
             saveShippingInfo({address,city,state,pinCode,phoneNo})
         );
         history.push("/order/confirm")
+    }
+
+    if (loading) {
+        return (
+            <>
+                <h1>Loading</h1>
+            </>
+        );
     }
 
     return (

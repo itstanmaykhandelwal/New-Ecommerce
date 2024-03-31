@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./component/layout/Header/Header.js";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router,Switch } from "react-router-dom";
 import WebFont from "webfontloader";
 import Footer from "./component/layout/Footer/Footer.js";
 import Home from "./component/Home/Home.js";
@@ -23,7 +23,8 @@ import Shipping from "./component/Shipping/Shipping.js";
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js";
 import Payment from "./component/Cart/Payment.js";
 import OrderSuccess from './component/Cart/OrderSuccess.js'
-import MyOrders from './component/Order/MyOrder.js'
+import MyOrders from './component/Order/MyOrder.js';
+import OrderDetails from './component/Order/OrderDetails.js';
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -82,11 +83,7 @@ function App() {
             <Route path="/login" component={LoginSignUp} />
             <Route path="/cart" component={Cart} />
             <ProtectedRoute exact path="/shipping" component={Shipping} />
-            <ProtectedRoute
-                exact
-                path="/order/confirm"
-                component={ConfirmOrder}
-            />
+            
 
             {stripeApiKey && (
                 <Elements stripe={loadStripe(stripeApiKey)}>
@@ -107,6 +104,20 @@ function App() {
                 path="/orders"
                 component={MyOrders}
             />
+            <Switch>
+            <ProtectedRoute
+                exact
+                path="/order/confirm"
+                component={ConfirmOrder}
+            />
+                <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+            </Switch>
+            {/* <ProtectedRoute
+                exact
+                path="/order/:id"
+                component={OrderDetails}
+            /> */}
+            {/* <ProtectedRoute exact path="/order/:id" component={OrderDetails} /> */}
             <Footer />
         </Router>
     );

@@ -6,6 +6,13 @@
     box-sizing: border-box;
     display: flex;
 }
+.ProductDetails .css-ohwg9z{
+    width: 100%;
+}
+.ProductDetails .css-1f8sh1y{
+    height: 342px!important;
+    text-align: center;
+}
 
 .ProductDetails > div {
     width: 100%;
@@ -23,7 +30,9 @@
 }
 
 .CarouselImage {
-    width: 20vmax;
+    /* width: 20vmax; */
+    height: auto;
+    max-width: 100%;
 }
 
 .detailsBlock-1 > h2 {
