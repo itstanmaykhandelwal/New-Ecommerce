@@ -13,6 +13,10 @@
     height: 342px!important;
     text-align: center;
 }
+.ProductDetails .detailsBlock2{
+    display: flex;
+    align-items: center;
+}
 
 .ProductDetails > div {
     width: 100%;
@@ -180,12 +184,15 @@
 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
     border: 1px solid rgba(56, 56, 56, 0.116);
-    width: 30vmax;
+    width: 25vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1vmax;
-    padding: 3vmax;
+    padding: 2vmax;
+}
+.reviewCard .user{
+    font-size: 32px;
 }
 .reviewCard > img {
     width: 5vmax;

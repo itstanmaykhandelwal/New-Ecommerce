@@ -28,6 +28,8 @@ import OrderDetails from './component/Order/OrderDetails.js';
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import Dashboard from './component/admin/Dashboard.js'
+import ProductList from './component/admin/ProductList.js'
 
 function App() {
     const [stripeApiKey, setStripeApiKey] = useState("");
@@ -112,12 +114,8 @@ function App() {
             />
                 <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
             </Switch>
-            {/* <ProtectedRoute
-                exact
-                path="/order/:id"
-                component={OrderDetails}
-            /> */}
-            {/* <ProtectedRoute exact path="/order/:id" component={OrderDetails} /> */}
+            <ProtectedRoute isAdmin={true} exact path="/admin/dashboard" component={Dashboard} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/products" component={ProductList} />
             <Footer />
         </Router>
     );

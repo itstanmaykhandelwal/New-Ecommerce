@@ -75,19 +75,25 @@ export const newReviewReducer = (state = { }, action) => {
     switch (action.type) {
         case NEW_REVIEW_REQUEST:
             return {
-                loading: true,
                 ...state,
+                loading: true,
             };
-        case PRODUCT_DETAILS_SUCCESS:
+        case NEW_REVIEW_SUCCESS:
             return {
                 loading: true,
-                product: action.payload,
+                sucess: action.payload,
             };
-        case PRODUCT_DETAILS_FAIL:
+        case NEW_REVIEW_FAIL:
             return {
+                ...state,
                 loading: false,
                 error: action.payload,
             };
+            case NEW_REVIEW_RESET:
+                return {
+                    ...state,
+                    sucess: false,
+                };    
         case CLEAR_ERROR:
             return {
                 ...state,
