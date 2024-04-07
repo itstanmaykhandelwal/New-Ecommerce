@@ -18,8 +18,7 @@ const Sidebar = () => {
                     <MdDashboard /> Dashboard
                 </p>
             </Link>
-            <Link>
-                <TreeView
+            <TreeView
                     defaultCollapseIcon={<IoMdExpand />}
                     defaultExpandIcon={<MdImportExport />}
                 >
@@ -32,7 +31,6 @@ const Sidebar = () => {
                         </Link>
                     </TreeItem>
                 </TreeView>
-            </Link>
             <Link to="/admin/orders">
                 <p>
                     <CiViewList /> Orders
