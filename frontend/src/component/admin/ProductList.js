@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import './productList.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearErrors, getAdminProduct } from '../../actions/ProductAction';
+import { clearErrors, getAdminProduct,deleteProduct } from '../../actions/ProductAction';
 import { Link } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { Button } from '@material-ui/core';
@@ -10,21 +10,38 @@ import MetaData from '../layout/MetaData';
 import { MdDelete, MdEdit, MdOutlineModeEditOutline } from "react-icons/md";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import Sidebar from './Sidebar';
+import { DELETE_PRODUCT_RESET } from '../../constants/productConstant';
 
-const ProductList = () => {
+const ProductList = ({history}) => {
     const dispatch = useDispatch();
 
     const alert = useAlert();
 
     const { error, products } = useSelector((state) => state.products);
 
+    const {error:deleteError,isDeleted} = useSelector(state => state.products)
+    
+    const deleteProductHandler = (id) => {
+        dispatch(deleteProduct(id));
+    }
     useEffect(() => {
         if (error) {
             alert.error(error);
             dispatch(clearErrors());
         }
+
+        if (deleteError) {
+            alert.error(deleteError);
+            dispatch(clearErrors());
+        }
+
+        if(isDeleted){
+            alert.success("Product Deleted Successfully")
+            history.push("/admin/dashboard");
+            dispatch({type:DELETE_PRODUCT_RESET})
+        }
         dispatch(getAdminProduct());
-    }, [dispatch, alert, error])
+    }, [dispatch, alert, error, deleteError,history,isDeleted])
 
 
     const columns = [
@@ -67,6 +84,7 @@ const ProductList = () => {
                         </Link>
 
                         <Button
+                            onClick={() => deleteProductHandler(params.id, "id")}
                         >
                             <MdDelete />
                         </Button>

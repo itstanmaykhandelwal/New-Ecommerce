@@ -68,8 +68,6 @@ const NewProduct = ({ history }) => {
             myForm.append("images", image);
         });
         dispatch(createProduct(myForm));
-
-        
     };
 
     const createProductImagesChange = (e) => {
