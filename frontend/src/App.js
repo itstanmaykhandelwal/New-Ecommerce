@@ -31,6 +31,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import Dashboard from './component/admin/Dashboard.js'
 import ProductList from './component/admin/ProductList.js'
 import NewProduct from "./component/admin/NewProduct.js";
+import UpdateProduct from "./component/admin/UpdateProduct.js";
+import OrderList from "./component/admin/OrderList.js";
+import ProcessOrder from "./component/admin/ProcessOrder.js";
 
 function App() {
     const [stripeApiKey, setStripeApiKey] = useState("");
@@ -118,6 +121,9 @@ function App() {
             <ProtectedRoute isAdmin={true} exact path="/admin/dashboard" component={Dashboard} />
             <ProtectedRoute isAdmin={true} exact path="/admin/products" component={ProductList} />
             <ProtectedRoute isAdmin={true} exact path="/admin/product" component={NewProduct} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/product/:id" component={UpdateProduct} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/orders" component={OrderList} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/order/:id" component={ProcessOrder} />
             <Footer />
         </Router>
     );

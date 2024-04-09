@@ -19,7 +19,7 @@ const ProductList = ({history}) => {
 
     const { error, products } = useSelector((state) => state.products);
 
-    const {error:deleteError,isDeleted} = useSelector(state => state.products)
+    const {error:deleteError,isDeleted} = useSelector(state => state.product)
     
     const deleteProductHandler = (id) => {
         dispatch(deleteProduct(id));
@@ -50,8 +50,8 @@ const ProductList = ({history}) => {
         {
             field: "name",
             headerName: "Name",
-            minWidth: 350,
-            flex: 1,
+            minWidth: 120,
+            flex: 0.2,
         },
         {
             field: "stock",
@@ -65,15 +65,15 @@ const ProductList = ({history}) => {
             field: "price",
             headerName: "Price",
             type: "number",
-            minWidth: 270,
-            flex: 0.5,
+            minWidth: 140,
+            flex: 0.2,
         },
 
         {
             field: "actions",
             flex: 0.3,
             headerName: "Actions",
-            minWidth: 150,
+            minWidth: 120,
             type: "number",
             sortable: false,
             renderCell: (params) => {
@@ -84,7 +84,7 @@ const ProductList = ({history}) => {
                         </Link>
 
                         <Button
-                            onClick={() => deleteProductHandler(params.id, "id")}
+                           onClick={() => deleteProductHandler(params.row.id)}
                         >
                             <MdDelete />
                         </Button>

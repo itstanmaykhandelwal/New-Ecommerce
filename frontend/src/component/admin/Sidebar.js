@@ -18,19 +18,21 @@ const Sidebar = () => {
                     <MdDashboard /> Dashboard
                 </p>
             </Link>
+            <div className='product_list'>
             <TreeView
-                    defaultCollapseIcon={<IoMdExpand />}
-                    defaultExpandIcon={<MdImportExport />}
-                >
-                    <TreeItem nodeId='1' label="Products">
-                        <Link to="/admin/products">
-                            <TreeItem nodeId='2' label="All" icon={<MdOutlinePostAdd />} />
-                        </Link>
-                        <Link to="/admin/product">
-                            <TreeItem nodeId='3' label="Create" icon={<IoAdd />} />
-                        </Link>
-                    </TreeItem>
-                </TreeView>
+                defaultCollapseIcon={<IoMdExpand />}
+                defaultExpandIcon={<MdImportExport />}
+            >
+                <TreeItem nodeId='1' label="Products">
+                    <Link to="/admin/products">
+                        <TreeItem nodeId='2' label="All" icon={<MdOutlinePostAdd />} />
+                    </Link>
+                    <Link to="/admin/product">
+                        <TreeItem nodeId='3' label="Create" icon={<IoAdd />} />
+                    </Link>
+                </TreeItem>
+            </TreeView>
+            </div>
             <Link to="/admin/orders">
                 <p>
                     <CiViewList /> Orders

@@ -20,6 +20,16 @@
     margin-bottom: 30px;
     transition: all 0.5s;
 }
+.sidebar .product_list{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.493);
+    font: 200 1rem "Roboto";
+    margin-bottom: 30px;
+    transition: all 0.5s;
+}
+.sidebar .product_list:hover{
+    color: #ff5e14;
+}
 .sidebar a:hover {
     color: #ff5e14;
 }
