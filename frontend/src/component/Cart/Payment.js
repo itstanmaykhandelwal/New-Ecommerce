@@ -14,9 +14,6 @@ import {
 
 import axios from "axios";
 import "./payment.css";
-// import CreditCardIcon from "@material-ui/icons/CreditCard";
-// import EventIcon from "@material-ui/icons/Event";
-// import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { MdCreditCard } from "react-icons/md";
 import { MdEvent } from "react-icons/md";
 import { MdOutlineVpnKeyOff } from "react-icons/md";
