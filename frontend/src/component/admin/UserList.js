@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
-// import EditIcon from "@material-ui/icons/Edit";
-// import DeleteIcon from "@material-ui/icons/Delete";
+import { MdDelete, MdEdit } from "react-icons/md";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearErrors, deleteUser } from "../../actions/userAction";
 import { DELETE_USER_RESET } from "../../constants/userConstants";
@@ -17,7 +16,7 @@ const UsersList = ({ history }) => {
 
     const alert = useAlert();
 
-    const { error, users } = useSelector((state) => state.allUsers);
+    const { error, users } = useSelector((state) => state.allUser);
 
     const {
         error: deleteError,
@@ -51,7 +50,6 @@ const UsersList = ({ history }) => {
 
     const columns = [
         { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
-
         {
             field: "email",
             headerName: "Email",
@@ -94,7 +92,7 @@ const UsersList = ({ history }) => {
                                 "id"
                             )}`}
                         >
-                            {/* <EditIcon /> */}
+                            <MdEdit />
                         </Link>
 
                         <Button
@@ -104,7 +102,7 @@ const UsersList = ({ history }) => {
                                 )
                             }
                         >
-                            {/* <DeleteIcon /> */}
+                            <MdDelete />
                         </Button>
                     </Fragment>
                 );
@@ -114,7 +112,7 @@ const UsersList = ({ history }) => {
 
     const rows = [];
 
-    users &&
+    if (users) {
         users.forEach((item) => {
             rows.push({
                 id: item._id,
@@ -123,11 +121,14 @@ const UsersList = ({ history }) => {
                 name: item.name,
             });
         });
+    }
+    console.log(users,"Fiels");
 
     return (
         <Fragment>
             <MetaData title={`ALL USERS - Admin`} />
 
+            <div className="container">
             <div className="dashboard">
                 <SideBar />
                 <div className="productListContainer">
@@ -143,6 +144,7 @@ const UsersList = ({ history }) => {
                     />
                 </div>
             </div>
+             </div>
         </Fragment>
     );
 };

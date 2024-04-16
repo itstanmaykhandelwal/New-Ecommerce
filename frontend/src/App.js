@@ -35,6 +35,8 @@ import UpdateProduct from "./component/admin/UpdateProduct.js";
 import OrderList from "./component/admin/OrderList.js";
 import ProcessOrder from "./component/admin/ProcessOrder.js";
 import UserList from "./component/admin/UserList.js";
+import UpdateUser from "./component/admin/UpdateUser.js";
+import ProductReview from "./component/admin/ProductReview.js";
 
 function App() {
     const [stripeApiKey, setStripeApiKey] = useState("");
@@ -126,6 +128,8 @@ function App() {
             <ProtectedRoute isAdmin={true} exact path="/admin/orders" component={OrderList} />
             <ProtectedRoute isAdmin={true} exact path="/admin/order/:id" component={ProcessOrder} />
             <ProtectedRoute isAdmin={true} exact path="/admin/users" component={UserList} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/user/:id" component={UpdateUser} />
+            <ProtectedRoute isAdmin={true} exact path="/admin/reviews" component={ProductReview} />
             <Footer />
         </Router>
     );
