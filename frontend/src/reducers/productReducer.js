@@ -166,6 +166,7 @@ export const newReviewReducer = (state = {}, action) => {
             return state;
     }
 };
+
 export const productReviewsReducer = (state = { reviews: [] }, action) => {
     switch (action.type) {
         case ALL_REVIEW_REQUEST:
