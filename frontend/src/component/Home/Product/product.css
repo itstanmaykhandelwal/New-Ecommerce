@@ -1,10 +1,67 @@
 .product-flex-lyt{
     display: flex;
     margin: 2vmax auto;
-    width: 80vw;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 100%;
+    gap: 35px;
+}
+.product-flex-lyt .card{
+    min-width: 290px;
+    border: none;
+}
+.product-flex-lyt a{
+    text-decoration: none;
+}
+
+.typ-custom-height{
+    min-height: 230px;
+}
+.product-flex-lyt .card .card-body .card-title{
+    color: #111111;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    text-transform: capitalize;
+}
+.product-flex-lyt .card .card-body .card--title--buying{
+    position: relative;
+}
+.product-flex-lyt .card .card-body .card--title--buying .buy-btn{
+    font-size: 15px;
+    color: #e53637;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: -20px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+.product-flex-lyt .card .card-body{
+    padding: 0;
+}
+.product-flex-lyt .card .card-body .price{
+    color: #0d0d0d;
+    font-weight: 700;
+}
+.product-flex-lyt .card:hover .card-body .card--title--buying .buy-btn{
+    top: 0px;
+    opacity: 1;
+    visibility: visible;
+}
+.product-flex-lyt .card:hover .card-body .card--title--buying .card-title{
+    opacity: 0;
+}
+.product-flex-lyt .card .img-height{
+    max-width: 288px;
+    min-height: 245px;
 }
 .productCard {
     width: 16vmax;
