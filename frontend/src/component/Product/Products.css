@@ -9,11 +9,22 @@
 }
 
 .products {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 10vmax;
     justify-content: center;
-    min-height: 30vh;
+
+}
+
+.products .card{
+    border: none;
+}
+.products .card .card-body .card-title{
+    color: #111111;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    text-transform: capitalize;
 }
 
 .paginationBox {
@@ -26,15 +37,20 @@
     display: flex;
     justify-content: center;
     padding: 0;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
 .page-item {
     background-color: rgb(255, 255, 255);
     list-style: none;
-    border: 1px solid rgba(0, 0, 0, 0.178);
-    padding: 1vmax 1.5vmax;
+    /* border: 1px solid rgba(0, 0, 0, 0.178); */
+    /* padding: 1vmax 1.5vmax; */
+    /* padding: 5px; */
     transition: all 0.3s;
     cursor: pointer;
+    border-radius: 50%;
+
 }
 .page-item:first-child {
     border-radius: 5px 0 0 5px;
@@ -48,43 +64,68 @@
     font: 300 0.7vmax "Roboto";
     color: rgb(80, 80, 80);
     transition: all 0.3s;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .page-item:hover {
     background-color: rgb(230, 230, 230);
-}
 
+}
+.active>.page-link{
+    background-color: rgb(230, 230, 230);
+    color: #ff5e14;
+    border: 1px solid #ff5e14;
+}
 .page-item:hover .page-link {
-    color: rgb(0, 0, 0);
+    color: #ff5e14;
 }
 
 .pageItemActive {
-    background-color: tomato;
+    background-color: #ff5e14;
 }
 
 .pageLinkActive {
     color: white;
 }
 
-.filterBox {
-    width: 10vmax;
-    position: absolute;
-    top: 10vmax;
-    left: 4vmax;
+.filterBox .accordion-button{
+    padding: 0;
+}
+.filterBox .accordion.accordion-flush{
+    margin-bottom: 20px;
+}
+.filterBox .accordion-button:focus{
+    box-shadow: none;
+}
+.filterBox .accordion-button:not(.collapsed){
+    background-color: transparent;
+    box-shadow: none;
+}
+.filterBox .accordion-body{
+    padding: 0;
 }
 
 .categoryBox {
-    padding: 0%;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .category-link {
     list-style: none;
-    color: rgba(0, 0, 0, 0.61);
-    font: 400 0.8vmax "Roboto";
-    margin: 0.4vmax;
     cursor: pointer;
     transition: all 0.5s;
-    font-size: 16px;
+    color: #b7b7b7;
+    font-size: 15px;
+    line-height: 32px;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
 }
 .category-link:hover {
     color: tomato;
@@ -100,28 +141,63 @@
     margin-right: 5px;
 }
 .color-box{
-    width: 20px;
-    height: 12px;
-    border-radius: 6px;
+    height: 36px;
+    width: 36px;
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
 }
 .colors-name {
     list-style: none;
     color: rgba(0, 0, 0, 0.61);
     font: 400 0.8vmax "Roboto";
     font-size: 16px;
-    margin: 0.4vmax;
+    /* margin: 0.4vmax; */
     cursor: pointer;
     transition: all 0.5s;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 .colors-name:hover {
     color: tomato;
 }
 
-
+.filterBox{
+    padding-right: 20px;
+}
+.filterBox .searchBox {
+    position: relative;
+    margin-bottom: 45px;
+}
+.filterBox .searchBox input{
+    width: 100%;
+    font-size: 15px;
+    color: #b7b7b7;
+    padding-left: 20px;
+    padding-right: 55px;
+    border: 1px solid #e5e5e5;
+    height: 42px;
+}
+.filterBox .searchBox input:focus-visible{
+    outline: none;
+}
+.filterBox .searchBox input::placeholder{
+    color: #b7b7b7;
+}
+.filterBox .searchBox button{
+    position: absolute;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    top: 9px;
+    color: #b7b7b7;
+}
 .filterBox > fieldset {
     border: 1px solid rgba(0, 0, 0, 0.329);
     position: relative;
@@ -132,9 +208,9 @@
 .filterBox .rating-text{
     position: absolute;
     top: -11px;
-    left: 10px;
+    left: 22px;
     background: white;
-    width: 102px;
+    width: 120px;
 }
 @media screen and (max-width: 600px) {
     .filterBox {

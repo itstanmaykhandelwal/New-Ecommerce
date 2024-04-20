@@ -5,6 +5,10 @@
     padding: 180px 0;
     padding-bottom: 70px;
 }
+.lyt-section.typ-pt-0{
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .img-style {
     min-width: 10rem;
     height: 10rem;

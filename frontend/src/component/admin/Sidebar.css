@@ -45,4 +45,9 @@
 
 .MuiTypography-root {
     background-color: #fff !important;
+    color: #111111;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
 }

@@ -15,14 +15,6 @@ const ProductCard = ({ product }) => {
         <>
             {/* <Link className="productCard" to={`/product/${product._id}`}> */}
             <Link to={`/product/${product._id}`}>
-                {/* {product.images && product.images.length > 0 ? <img src={product.images[0].url} alt="" /> : null}
-                <p>{product.name}</p>
-                <div>
-                    <Rating {...options} /> <span className="productCardSpan">({product.numOfReviews} Review)</span>
-                </div>
-                <span>{`₹${product.price}`}</span>
-                <span>{product.color}</span>
-                <div className="bs-btn">Buy Now</div> */}
                 <Card>
                     <div className="img-height">
                     
@@ -41,8 +33,10 @@ const ProductCard = ({ product }) => {
                         <div>
                             <Rating {...options} /> <span className="productCardSpan">({product.numOfReviews} Review)</span>
                         </div>
-                        <span className="price">{`₹${product.price}`}</span>
-                        <span>{product.color}</span>
+                        <div className="price-flex">
+                            <span className="price">{`₹${product.price}`}</span>
+                            <span className="color-circle" style={{ backgroundColor: product.color }}></span>
+                        </div>
                     </Card.Body>
                 </Card>
             </Link>

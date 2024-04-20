@@ -6,29 +6,27 @@ import MetaData from "../layout/MetaData.js";
 import { clearErrors, getProduct } from "../../actions/ProductAction.js";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
+import Swipers from "./Swiper/Swiper.js";
 
 const Home = () => {
-    const alert = useAlert()
+    const alert = useAlert();
     const dispatch = useDispatch();
-    const {  error, products } = useSelector(
-        (state) => state.products
-    );
+    const { error, products } = useSelector((state) => state.products);
 
     useEffect(() => {
-        if(error){
+        if (error) {
             alert.error(error);
             dispatch(clearErrors());
         }
         dispatch(getProduct());
-    }, [dispatch,error,alert]);
+    }, [dispatch, error, alert]);
 
     return (
         <>
             <MetaData title="Ecomerce" />
-            <section className="lyt-section typ-banner-lyt">
-                <div className="container">
-                    <div className="row typ-justify-space">
-                        <div className="col-lg-5">
+            <section className="lyt-section typ-pt-0">
+
+                {/* <div className="col-lg-5">
                             <div className="hero-section-data">
                                 <p className="intro-data">Welcome to</p>
                                 <h2>Store</h2>
@@ -44,7 +42,6 @@ const Home = () => {
                                 </p>
                                 <Link to="/home">Home</Link>
                             </div>
-                            {/* Image Home Page */}
                         </div>
                         <div className="col-lg-5">
                             <div className="hero-section-image">
@@ -56,9 +53,8 @@ const Home = () => {
                                     />
                                 </figure>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div> */}
+                <Swipers />
             </section>
 
             {/* // Section Two */}
@@ -72,10 +68,17 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="product-flex-lyt">
-                        {products &&
-                            products.map((product) => (
-                                <ProductCard key={product._id} product={product} />
-                            ))}
+                        <div className="row">
+                            {products &&
+                                products.map((product) => (
+                                    <div className="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                                        <ProductCard
+                                            key={product._id}
+                                            product={product}
+                                        />
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 </div>
             </section>
