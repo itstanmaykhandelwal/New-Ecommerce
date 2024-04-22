@@ -6,6 +6,7 @@ import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../layout/MetaData";
 import { MdOutlineSpellcheck, MdAttachMoney, MdDescription, MdAccountTree, MdFormatColorFill } from "react-icons/md";
+import { TbRulerMeasure } from "react-icons/tb";
 import { BsFillBucketFill } from "react-icons/bs";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstant";
@@ -23,6 +24,8 @@ const NewProduct = ({ history }) => {
     const [category, setCategory] = useState("");
     const [Stock, setStock] = useState(0);
     const [images, setImages] = useState([]);
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
     const [imagesPreview, setImagesPreview] = useState([]);
 
     const categories = [
@@ -34,6 +37,26 @@ const NewProduct = ({ history }) => {
         "Camera",
         "SmartPhones",
     ];
+
+    const colors = [
+        "Black",
+        "White",
+        "Blue",
+        "Pink",
+        "Purple",
+        "Yellow",
+        "Orange",
+        "Red",
+    ];
+    const sizes = [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL",
+        "4XL",
+    ]
 
     useEffect(() => {
         console.log("useEffect: error ->", error);
@@ -62,6 +85,8 @@ const NewProduct = ({ history }) => {
         myForm.set("price", price);
         myForm.set("description", description);
         myForm.set("category", category);
+        myForm.set("color", color);
+        myForm.set("size", size);
         myForm.set("Stock", Stock);
 
         images.forEach((image) => {
@@ -94,6 +119,7 @@ const NewProduct = ({ history }) => {
     return (
         <Fragment>
             <MetaData title="Create Product" />
+            <div className="container">
             <div className="dashboard">
                 <SideBar />
                 <div className="newProductContainer">
@@ -147,7 +173,30 @@ const NewProduct = ({ history }) => {
                                 ))}
                             </select>
                         </div>
+                        <div>
 
+                        <MdFormatColorFill />
+                            <select onChange={(e) => setColor(e.target.value)}>
+                                <option value="">Choose Color</option>
+                                {colors.map((colo) => (
+                                    <option key={colo} value={colo}>
+                                        {colo}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <div>
+                            <TbRulerMeasure />
+                            <select onChange={(e) => setSize(e.target.value)}>
+                                <option value="">Choose Size</option>
+                                {sizes.map((sizing) => (
+                                    <option key={sizing} value={sizing}>
+                                        {sizing}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                         <div>
                         <BsFillBucketFill />
                             <input
@@ -183,6 +232,7 @@ const NewProduct = ({ history }) => {
                         </Button>
                     </form>
                 </div>
+            </div>
             </div>
         </Fragment>
     );

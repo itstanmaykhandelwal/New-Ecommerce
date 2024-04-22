@@ -37,6 +37,7 @@ export const getProduct =
         price = [500, 60000],
         category,
         color,
+        size,
         ratings = 0
     ) =>
     async (dispatch) => {
@@ -50,6 +51,9 @@ export const getProduct =
             }
             if (color) {
                 link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&color=${color}`;
+            }
+            if (size) {
+                link = `/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&size=${size}`;
             }
             const { data } = await axios.get(link);
 

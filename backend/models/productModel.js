@@ -77,10 +77,14 @@ const productSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    // color: {
-    //     type: String,
-    //     required: [true, "Please Enter Product Color"],
-    // },
+    color: {
+        type: String,
+        // required: [true, "Please Enter Product Color"],
+    },
+    size:{
+        type: String,
+        // required: [true, "Please Enter Product Size"],
+    }
 });
 
 module.exports = mongoose.model("Product", productSchema);

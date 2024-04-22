@@ -133,10 +133,16 @@
 
 .colorBox {
     padding: 0%;
-    display: inline-block;
-    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
 }
-
+.sizeBox{
+    padding: 0%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
 .color-value {
     margin-right: 5px;
 }
@@ -166,6 +172,29 @@
 }
 .colors-name:hover {
     color: tomato;
+}
+
+.size-link{
+    list-style: none;
+    color: rgba(0, 0, 0, 0.61);
+    font: 400 0.8vmax "Roboto";
+    font-size: 16px;
+    /* margin: 0.4vmax; */
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 6px 25px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #e5e5e5;
+}
+.size-link:hover{
+    color: #ff5e14;
 }
 
 .filterBox{

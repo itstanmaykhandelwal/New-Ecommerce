@@ -13,6 +13,7 @@ import { MdSearch } from "react-icons/md";
 
 const categories = ["Laptop", "Cloth", "Tops", "Camera", "Kurti"];
 const colors = ["Blue", "Green", "Black", "Purple", "Pink"];
+const sizes = ["S","M","L","XL","XXL","XXXL","4XL",]
 
 const Products = ({ match,history }) => {
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Products = ({ match,history }) => {
     const [price, setPrice] = useState([500, 60000]);
     const [category, setCategory] = useState("");
     const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
     const [keywords, setKeywords] = useState("");
 
     const [ratings, setRatings] = useState(0);
@@ -54,8 +56,8 @@ const Products = ({ match,history }) => {
             alert.error(error)
             dispatch(clearErrors())
         }
-        dispatch(getProduct(keyword, currentPage, price, category, color, ratings));
-    }, [dispatch, keyword, currentPage, price, category, color, ratings, alert, error]);
+        dispatch(getProduct(keyword, currentPage, price, category, color,size, ratings));
+    }, [dispatch, keyword, currentPage, price, category, color,size, ratings, alert, error]);
 
     const itemsPerPage = 8;
 
@@ -143,6 +145,27 @@ const Products = ({ match,history }) => {
                                 </Accordion.Item>
                             </Accordion>
 
+                            <Accordion defaultActiveKey="2" flush>
+                                <Accordion.Item eventKey="2">
+                                    <Accordion.Header>
+                                        <Typography>Sizes</Typography>
+                                    </Accordion.Header>
+                                    <Accordion.Body>
+                                        <ul className="sizeBox">
+                                            {sizes.map((size) => (
+                                                <li
+                                                    className="size-link"
+                                                    key={size}
+                                                    onClick={() => setSize(size)}
+                                                >
+                                                    {size}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+
                             <fieldset>
                                 <Typography component="legend" className="rating-text">Rating Above</Typography>
                                 <Slider
@@ -160,7 +183,7 @@ const Products = ({ match,history }) => {
                     </div>
                     <div className="col-lg-9">
                         <div className="product-flex-lyt">
-                            <div className="row">
+                            <div className="row w-100">
                                 {products &&
                                     products.map((product) => (
                                         // <ProductCard key={product.id} product={product} />

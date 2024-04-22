@@ -33,6 +33,9 @@ const ProductCard = ({ product }) => {
                         <div>
                             <Rating {...options} /> <span className="productCardSpan">({product.numOfReviews} Review)</span>
                         </div>
+                        <div>
+                            <p>{product.size}</p>
+                        </div>
                         <div className="price-flex">
                             <span className="price">{`₹${product.price}`}</span>
                             <span className="color-circle" style={{ backgroundColor: product.color }}></span>

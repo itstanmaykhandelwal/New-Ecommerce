@@ -139,6 +139,9 @@ const ProductDetail = ({ match }) => {
                                     </b>
                                 </p>
                             </div>
+                            <div>
+                                <p>{product.color}</p>
+                            </div>
                             <div className="detailsBlock-4">
                                 Description : <p>{product.description}</p>
                             </div>
