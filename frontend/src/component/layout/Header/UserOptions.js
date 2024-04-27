@@ -23,7 +23,7 @@ const UserOptions = ({ user }) => {
     const options = [
         { icon: <MdPerson />, name: "Profile", func: account },
         { icon: <MdList />, name: "Orders", func: orders },
-        { icon: <MdShoppingCart style={{color:cartItems.length > 0? "tomato":"unset"}} />, name: `Cart(${cartItems.length})`, func: cart },
+        { icon: <MdShoppingCart style={{color:cartItems.length > 0? "#ff5e14":"unset"}} />, name: `Cart(${cartItems.length})`, func: cart },
         { icon: <MdExitToApp />, name: "Logout", func: logoutUser },
     ];
 

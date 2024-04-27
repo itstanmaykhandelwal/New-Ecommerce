@@ -128,7 +128,7 @@
 
 .productCard > span {
     margin: 0.5vmax;
-    color: tomato;
+    color: #ff5e14;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: 1vmax;
 }
@@ -156,5 +156,8 @@
     .productCard > div > span {
         margin: 0 0.5vmax;
         font: 300 1vmax "Roboto";
+    }
+    .productCardSpan{
+        font-size: 16px;
     }
 }

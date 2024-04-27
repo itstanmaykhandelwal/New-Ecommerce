@@ -3,6 +3,7 @@
     background-color: white;
     display: grid;
     grid-template-columns: 6fr 3fr;
+    margin-bottom: 30px;
 }
 
 .confirmOrderPage > div:last-child {
@@ -10,7 +11,7 @@
 }
 
 .confirmshippingArea {
-    padding: 5vmax;
+    /* padding: 5vmax; */
     padding-bottom: 0%;
 }
 
@@ -20,7 +21,7 @@
 
 .confirmshippingAreaBox,
 .confirmCartItemsContainer {
-    margin: 2vmax;
+    /* margin: 2vmax; */
 }
 
 .confirmshippingAreaBox > div {
@@ -43,8 +44,8 @@
 }
 
 .confirmCartItems {
-    padding: 5vmax;
     padding-top: 2vmax;
+    padding-right: 2vmax;
 }
 
 .confirmCartItemsContainer {
@@ -77,7 +78,7 @@
 }
 
 .orderSummary {
-    padding: 7vmax;
+    padding-left: 15px;
 }
 
 .orderSummary > p {
@@ -109,7 +110,7 @@
 }
 
 .orderSummary > button {
-    background-color: tomato;
+    background-color: #ff5e14;
     color: white;
     width: 100%;
     padding: 1vmax;

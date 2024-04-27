@@ -101,7 +101,8 @@ function App() {
                     component={ResetPassword}
                 />
                 <Route path="/login" component={LoginSignUp} />
-                <Route path="/cart" component={Cart} />
+                {/* <Route path="/cart" component={Cart} /> */}
+                <ProtectedRoute exact path="/cart" component={Cart} />
                 <ProtectedRoute exact path="/shipping" component={Shipping} />
 
 

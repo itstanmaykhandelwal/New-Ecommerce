@@ -18,6 +18,12 @@
     display: flex;
     gap: 40px;
 }
+.navbar-nav .user-icon{
+    border: 1px solid #e5e5e5;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
 .navbar-nav .nav-link{
     padding: 0!important;
     font-size: 18px;
@@ -43,4 +49,15 @@
 }
 .navbar-nav :hover a:after{
     transform: scale(1);
+}
+@media screen and (max-width: 600px) {
+    .speedDial {
+        position: fixed;
+        right: 2vmax;
+        top: 14vmax;
+    }
+    .logo-img {
+        width: 74px;
+        height: 75px;
+    }
 }

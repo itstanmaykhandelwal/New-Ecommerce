@@ -40,6 +40,7 @@ const ConfirmOrder = ({ history }) => {
         <>
             <MetaData title="Confirm Order" />
             <CheckOutSteps activeStep={1} />
+            <div className="container">
             <div className="confirmOrderPage">
                 <div>
                     <div className="confirmshippingArea">
@@ -94,6 +95,7 @@ const ConfirmOrder = ({ history }) => {
                         <button onClick={processToPayment}>Proceed To Payment</button>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

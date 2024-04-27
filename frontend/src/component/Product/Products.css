@@ -128,7 +128,7 @@
     transition: all, 0.3s;
 }
 .category-link:hover {
-    color: tomato;
+    color: #ff5e14;
 }
 
 .colorBox {
@@ -171,7 +171,7 @@
     margin-bottom: 10px;
 }
 .colors-name:hover {
-    color: tomato;
+    color: #ff5e14;
 }
 
 .size-link{
@@ -203,6 +203,7 @@
 .filterBox .searchBox {
     position: relative;
     margin-bottom: 45px;
+
 }
 .filterBox .searchBox input{
     width: 100%;
@@ -227,12 +228,14 @@
     top: 9px;
     color: #b7b7b7;
 }
-.filterBox > fieldset {
+.filterBox  fieldset {
     border: 1px solid rgba(0, 0, 0, 0.329);
     position: relative;
     padding: 12px;
     padding-bottom: 3px;
     border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .filterBox .rating-text{
     position: absolute;
@@ -241,11 +244,64 @@
     background: white;
     width: 120px;
 }
+.d--none{
+    display: none;
+}
 @media screen and (max-width: 600px) {
     .filterBox {
-        width: 20vmax;
+        /* width: 20vmax;
         position: static;
-        margin: auto;
+        margin: auto; */
+    }
+    .productsHeading{
+        padding: 0;
+        padding-bottom: 5px;
+        font-size: 18px;
+        width: 20vw;
+    }
+    .MuiTypography-root{
+        margin-right: 5px!important;
+    }
+    .product-flex-lyt .card .img-height{
+        min-height: auto;
+        width: 100%;
+    }
+    .product-flex-lyt .card .img-height img{
+        width: 100%;
+    }
+    .filterBox .searchBox {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .filterBox{
+        padding-right: 0;
+    }
+    .mob-flexx{
+        /* display: flex; */
+        justify-content: space-between;
+        width: 100%;
+    }
+    .colorBox{
+        display: flex;
+        flex-wrap: wrap;
+        width: 120px;
+    }
+    .size-link{
+        font-size: 14px;
+    }
+    .color-box{
+        width: 28px;
+        height: 28px;
+    }
+    .flex-direction-rev-mob{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .mob--none{
+        display: none;
+    }
+    .d--none{
+        display: block;
     }
 
     .page-link {

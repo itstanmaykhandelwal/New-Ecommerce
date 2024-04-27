@@ -45,7 +45,9 @@ const Cart = ({history}) => {
                     <Link to="/products">Go to Products</Link>
                 </div>
             ) :
-                (<>
+                (
+                <>
+                    <div className="container">
                     <div className="cartPage">
                         <div className="cartHeader">
                             <p>Product</p>
@@ -76,6 +78,7 @@ const Cart = ({history}) => {
                         <div className='checkOutBtn'>
                             <button onClick={checkoutHandler}>Check Out</button>
                         </div>
+                    </div>
                     </div>
                 </>
                 )
